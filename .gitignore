@@ -1,7 +1,5 @@
-node_modules
-coverage
-bower_components
-.parcel-cache
+node_modules/
 /dashboard
 /graphics
-/extension
+.cache/
+.DS_Store

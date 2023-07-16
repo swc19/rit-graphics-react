@@ -12,31 +12,19 @@ export const LayoutObject = () => {
     return(
         <Container>
             <Background src={layout_image}></Background>
-            <Player1Ports>
-                <Port filled={Number(setInfo.player1port) === 1} portnum={1}></Port>
-                <Port filled={Number(setInfo.player1port) === 2} portnum={2}></Port>
-                <Port filled={Number(setInfo.player1port) === 3} portnum={3}></Port>
-                <Port filled={Number(setInfo.player1port) === 4} portnum={4}></Port>
-            </Player1Ports>
-            <Player1Info>
-                <Player1Character src={ssb64_images[setInfo.player1character]}></Player1Character>
-                <Player1Name><ReactFitty maxSize={48}>{setInfo.player1tag}</ReactFitty></Player1Name>
-                <Player1Score><ReactFitty maxSize={48}>{setInfo.player1score}</ReactFitty></Player1Score>
-            </Player1Info>
-            <Player2Ports>
-                <Port filled={Number(setInfo.player2port) === 1} portnum={1}></Port>
-                <Port filled={Number(setInfo.player2port) === 2} portnum={2}></Port>
-                <Port filled={Number(setInfo.player2port) === 3} portnum={3}></Port>
-                <Port filled={Number(setInfo.player2port) === 4} portnum={4}></Port>
-            </Player2Ports>
-            <Player2Info>
-                <Player2Character src={ssb64_images[setInfo.player2character]}></Player2Character>
-                <Player2Name><ReactFitty maxSize={48}>{setInfo.player2tag}</ReactFitty></Player2Name>
-                <Player2Score><ReactFitty maxSize={48}>{setInfo.player2score}</ReactFitty></Player2Score>
-            </Player2Info>
             <TournamentInfo>
-                <BracketLocation><ReactFitty maxSize={48}>{setInfo.bracketlocation}</ReactFitty></BracketLocation>
+                <BracketLocation><ReactFitty maxSize={36}>{setInfo.bracketlocation}</ReactFitty></BracketLocation>
             </TournamentInfo>
+            <Player1Info>
+                <PlayerName><ReactFitty minSize={12} maxSize={24}>{setInfo.player1tag}</ReactFitty></PlayerName>
+                <PlayerScore>{setInfo.player1score}</PlayerScore>
+                <PlayerPronouns><ReactFitty maxSize={16}>{setInfo.player1pronouns}</ReactFitty></PlayerPronouns>
+            </Player1Info>
+            <Player2Info>
+                <PlayerName><ReactFitty minSize={12} maxSize={24}>{setInfo.player2tag}</ReactFitty></PlayerName>
+                <PlayerScore>{setInfo.player2score}</PlayerScore>
+                <PlayerPronouns><ReactFitty maxSize={16}>{setInfo.player2pronouns}</ReactFitty></PlayerPronouns>
+            </Player2Info>
         </Container>
     )
     
@@ -44,7 +32,7 @@ export const LayoutObject = () => {
 
 const Container = styled.div`
     display: block; 
-    font-family: Roboto;
+    font-family: Poppins;
     width: 1920px;
     height: 1080px;
 `
@@ -57,122 +45,68 @@ const Background = styled.img`
 
 const Player1Info = styled.div`
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
     position: absolute;
     text-align: center;
+    color: black;
+    width: 185px;
+    height: 25px;
+    left: 530px;
+    bottom: -80px;
+    & > * {
+        overflow: hidden;
+    }
+`
+
+const PlayerName = styled.div`
+    position: relative;
+    top: 1px;
+    height: 25px;
+    width: 155px;
+    line-height: 24px;
+`
+const PlayerPronouns = styled.div`
+    position: absolute;
     color: white;
-    width: 365px;
-    height: 70px;
+    font-size: 14px;
     left: 55px;
-    top: 495px;
-    line-height: 68px;
+    width: 150px;
+    top: 28px;
 `
-
-const Player1Name = styled.div`
-    position: relative;
-    height: 70px;
-    left: -5px;
-    width: 250px;
+const PlayerScore = styled.div`
+    position: absolute;
+    color: orange;
+    width: 30px;
+    font-size: 28px;
+    left: 180px;
+    top: -6px;
 `
-
-const Player1Character = styled.img`
-    position: relative;
-    height: 30px;
-    width: 24px;
-    left: -8px;
-    margin: auto;
-`
-
-const Player1Score = styled.div`
-    position: relative;
-    left: 10px;
-    width: 45px;
-    font-size: 48px;
-`
-
 const Player2Info = styled.div`
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
     position: absolute;
     text-align: center;
-    color: white;
-    width: 365px;
-    height: 70px;
-    left: 55px;
-    top: 615px;
-    line-height: 68px;
+    color: black;
+    width: 185px;
+    height: 25px;
+    left: 1270px;
+    bottom: -80px;
+    & > * {
+        overflow: hidden;
+    }
 `
-
-const Player2Name = styled.div`
-    position: relative;
-    height: 70px;
-    left: -5px;
-    width: 250px;
-`
-
-const Player2Character = styled.img`
-    position: relative;
-    height: 30px;
-    width: 24px;
-    left: -8px;
-    margin: auto;
-`
-
-const Player2Score = styled.div`
-    position: relative;
-    left: 10px;
-    width: 45px;
-    font-size: 48px;
-`
-
 const TournamentInfo = styled.div`
     position: absolute;
-    width: 550px;
-    height: 70px;
     top: 5px;
-    left: 930px;
-    color: white;
+    height: 35px;
+    line-height: 40px;
+    width: 365px;
+    left: 750px;
+    font-size: 28px;
     text-align: center;
-    line-height: 72px;
 `
 
 const BracketLocation = styled.div`
-`
-
-const Player1Ports = styled.div`
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    position: absolute;
-    top: 475px;
-    left: 100px;
-    width: 100px;
-
-`
-const Player2Ports = styled.div`
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    position: absolute;
-    top: 595px;
-    left: 100px;
-    width: 100px;
-`
-const Port = styled.div`
-    outline: 3px solid black;
-    width: 15px;
-    height: 15px;
-    border-radius: 25px;
-    background: ${props => {
-        if(props.filled){
-            switch(props.portnum){
-                case 1:
-                    return `#ed3636`;
-                case 2:
-                    return `blue`;
-                case 3:
-                    return `#ffdf1a`;
-                case 4:
-                    return `#4eb94e`;
-            }   
-        }
-    }}
 `
