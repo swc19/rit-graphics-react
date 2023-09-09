@@ -13,7 +13,7 @@ export const LayoutObject = () => {
         <Container>
             <Background src={layout_image}></Background>
             <TournamentInfo>
-                <BracketLocation><ReactFitty maxSize={36}>{setInfo.bracketlocation}</ReactFitty></BracketLocation>
+                <BracketLocation><ReactFitty maxSize={32}>{setInfo.bracketlocation}</ReactFitty></BracketLocation>
             </TournamentInfo>
             <Player1Info>
                 <PlayerName><ReactFitty minSize={12} maxSize={24}>{setInfo.player1tag}</ReactFitty></PlayerName>
@@ -53,7 +53,7 @@ const Player1Info = styled.div`
     width: 185px;
     height: 25px;
     left: 530px;
-    bottom: -80px;
+    bottom: 52px;
     & > * {
         overflow: hidden;
     }
@@ -92,7 +92,7 @@ const Player2Info = styled.div`
     width: 185px;
     height: 25px;
     left: 1270px;
-    bottom: -80px;
+    bottom: 52px;
     & > * {
         overflow: hidden;
     }
@@ -104,7 +104,7 @@ const TournamentInfo = styled.div`
     line-height: 40px;
     width: 365px;
     left: 750px;
-    font-size: 28px;
+    font-size: 26px;
     text-align: center;
 `
 
