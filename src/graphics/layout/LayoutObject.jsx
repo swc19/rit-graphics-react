@@ -53,7 +53,7 @@ const Player1Info = styled.div`
     width: 185px;
     height: 25px;
     left: 530px;
-    bottom: 52px;
+    top: 1002px;
     & > * {
         overflow: hidden;
     }
@@ -92,7 +92,7 @@ const Player2Info = styled.div`
     width: 185px;
     height: 25px;
     left: 1270px;
-    bottom: 52px;
+    top: 1002px;
     & > * {
         overflow: hidden;
     }
